@@ -1,0 +1,12 @@
+@mixin flexbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+.main-container {
+  @include flexbox();
+  font: 100% $font-stack;
+  color: $primary-color;
+}
