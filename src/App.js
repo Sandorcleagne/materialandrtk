@@ -1,4 +1,5 @@
 import "./App.css";
+import CartPage from "./pages/CartPage";
 import Home from "./pages/Home";
 
 function App() {
