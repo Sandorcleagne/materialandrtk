@@ -11,8 +11,10 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Stack } from "@mui/system";
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function ButtonAppBar() {
+  const { cart } = useSelector((state) => state.cart);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -55,7 +57,7 @@ export default function ButtonAppBar() {
                 to="/ProductCart"
                 style={{ textDecoration: "None", color: "white" }}
               >
-                <Badge badgeContent={0} color="error">
+                <Badge badgeContent={cart.length} color="error">
                   <ShoppingCartIcon />
                 </Badge>
               </Link>

@@ -5,9 +5,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import CartPage from "./pages/CartPage";
-import { persistor } from "./store";
-import { PersistGate } from "redux-persist/integration/react";
-import LoadingComponent from "./components/LoadingComponent";
+// import { persistor } from "./store";
+// import { PersistGate } from "redux-persist/integration/react";
+// import LoadingComponent from "./components/LoadingComponent";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,8 +21,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <PersistGate loading={<LoadingComponent />} persistor={persistor}>
-      <RouterProvider router={router} />
-    </PersistGate>
+    <RouterProvider router={router} />
+    {/* <PersistGate loading={null} persistor={persistor}></PersistGate> */}
   </Provider>
 );

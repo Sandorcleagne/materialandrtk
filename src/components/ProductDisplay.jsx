@@ -1,4 +1,4 @@
-import { Grid, CardActionArea, CircularProgress } from "@mui/material";
+import { Grid, CardActionArea, CircularProgress, Stack } from "@mui/material";
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -6,11 +6,19 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useGetAllProductsQuery } from "../services/product";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../redux/CartSlice";
+import { useSearchParams } from "react-router-dom";
 
 const ProductDisplay = () => {
   const responseData = useGetAllProductsQuery();
   const { data, error, isLoading } = responseData;
   console.log(responseData);
+  const dispatch = useDispatch();
+  const handleAddToCart = (items) => {
+    dispatch(addToCart(items));
+  };
+
   return (
     <>
       <Grid
@@ -47,7 +55,12 @@ const ProductDisplay = () => {
                       </Typography>
                     </CardContent>
                   </CardActionArea>
-                  <Button size="small" color="primary">
+
+                  <Button
+                    size="small"
+                    color="primary"
+                    onClick={() => handleAddToCart(items)}
+                  >
                     Add to cart
                   </Button>
                 </Card>
