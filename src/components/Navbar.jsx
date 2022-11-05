@@ -10,8 +10,9 @@ import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Stack } from "@mui/system";
 import { Grid } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
+import "../App.css";
 
 export default function ButtonAppBar() {
   const { cart } = useSelector((state) => state.cart);
@@ -67,6 +68,7 @@ export default function ButtonAppBar() {
           {/* </Stack> */}
         </Toolbar>
       </AppBar>
+      <Outlet />
     </Box>
   );
 }
