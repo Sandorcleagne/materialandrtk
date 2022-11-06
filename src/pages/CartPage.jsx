@@ -1,15 +1,25 @@
+import { Grid } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
-import LoadingComponent from "../components/LoadingComponent";
+import CartInfoDrwawer from "../components/CartInfoDrwawer";
+import CartPageCard from "../components/CartPageCard";
 
 const CartPage = () => {
-  const { cart, cartQty } = useSelector((state) => state.cart);
+  const { cart } = useSelector((state) => state.cart);
+
   console.log("cart", cart);
-  console.log("cartQty", cartQty);
   return (
-    <div>
-      <LoadingComponent />
-    </div>
+    <Grid
+      display="flex"
+      justifyContent="space-around"
+      alignItems="center"
+      padding="62px"
+    >
+      <CartInfoDrwawer />
+      {cart.map((items, index) => (
+        <CartPageCard id={items.id} title={items.title} />
+      ))}
+    </Grid>
   );
 };
 

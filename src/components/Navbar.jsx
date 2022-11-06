@@ -18,7 +18,7 @@ export default function ButtonAppBar() {
   const { cart } = useSelector((state) => state.cart);
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar>
           <IconButton
             size="large"
